@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: knative-core
+  namespace: argocd
+spec:
+  project: default
+  destination:
+    name: "in-cluster"
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
+      - SkipDryRunOnMissingResource=true
+  source:
+    path: knative-kustomize-core
+    repoURL: git@github.com:dmetzler/local-kube-app.git
+    targetRevision: HEAD
