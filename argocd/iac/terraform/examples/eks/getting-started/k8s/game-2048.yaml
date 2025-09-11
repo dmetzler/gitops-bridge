@@ -16,7 +16,7 @@ spec:
         app.kubernetes.io/name: game-2048
     spec:
       containers:
-        - image: public.ecr.aws/l6m2t8p7/docker-2048
+        - image: public.ecr.aws/l6m2t8p7/docker-2048@sha256:338a89c44a060734afb446950fbbcd804a005daf7af38def7c496967fa4ab965
           imagePullPolicy: Always
           name: game-2048
           ports:
